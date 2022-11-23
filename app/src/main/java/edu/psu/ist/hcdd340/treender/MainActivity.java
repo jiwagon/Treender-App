@@ -125,9 +125,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Log.d(TAG, "Rewind button clicked!");
         }
 
-
-
-
         if ((eventSourceId == R.id.nopeIcon) || (eventSourceId == R.id.boostIcon)
                 || (eventSourceId == R.id.likeIcon) || (eventSourceId == R.id.superLikeIcon)) {
 
@@ -145,11 +142,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             ShapeableImageView nextTreeImage = findViewById(R.id.imageTree);
             nextTreeImage.setImageResource(getCurrentProfile().getProfileImageID());
         }
-
-        //Log.d(TAG, String.valueOf(TREE_PROFILES[0])); //TreeProfile@5caf4c9
-        //Log.d(TAG, String.valueOf(TREE_PROFILES[1])); //TreeProfile@a75a7ce
-        //Log.d(TAG, String.valueOf(TREE_PROFILES[2])); //TreeProfile@48d66ef
-
     }
 
 
