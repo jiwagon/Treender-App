@@ -127,7 +127,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         TextView idNumberTextView = findViewById(R.id.treeID);
         String currentProfileId = idNumberTextView.getText().toString();
-        Log.d(TAG, "Current profile id: " + currentProfileId);
+        //Log.d(TAG, "Current profile id: " + currentProfileId);
+
+        ShapeableImageView treeImage = findViewById(R.id.imageTree);
+        treeImage.setImageResource(R.drawable.banana_tree);
+
+        Log.d(TAG, String.valueOf(TREE_PROFILES[0])); //TreeProfile@5caf4c9
+        Log.d(TAG, String.valueOf(TREE_PROFILES[1])); //TreeProfile@a75a7ce
+        Log.d(TAG, String.valueOf(TREE_PROFILES[2])); //TreeProfile@48d66ef
+
     }
 
 
