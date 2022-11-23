@@ -128,11 +128,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Log.d(TAG, "Rewind button clicked!");
         }
 
+        // Use || as "or" operator
         if ((eventSourceId == R.id.nopeIcon) || (eventSourceId == R.id.boostIcon)
                 || (eventSourceId == R.id.likeIcon) || (eventSourceId == R.id.superLikeIcon)) {
 
             moveToNextProfile();
 
+            // Update TextView contents by getting the fields in Tree Profile objects
             TextView nextTreeID = findViewById(R.id.treeID);
             nextTreeID.setText(getCurrentProfile().getProfileID());
 
@@ -142,12 +144,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             TextView nextTreeLocation = findViewById(R.id.locationText);
             nextTreeLocation.setText(getCurrentProfile().getLocation());
 
+            // Update image source by getting image id from current Tree Profile
             ShapeableImageView nextTreeImage = findViewById(R.id.imageTree);
             nextTreeImage.setImageResource(getCurrentProfile().getProfileImageID());
         }
         else if (eventSourceId == R.id.rewindIcon) {
+
             moveToPreviousProfile();
 
+            // Update TextView contents by getting the fields in Tree Profile objects
             TextView nextTreeID = findViewById(R.id.treeID);
             nextTreeID.setText(getCurrentProfile().getProfileID());
 
@@ -157,11 +162,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             TextView nextTreeLocation = findViewById(R.id.locationText);
             nextTreeLocation.setText(getCurrentProfile().getLocation());
 
+            // Update image source by getting image id from current Tree Profile
             ShapeableImageView nextTreeImage = findViewById(R.id.imageTree);
             nextTreeImage.setImageResource(getCurrentProfile().getProfileImageID());
         }
     }
-
 
     /**
      * Gets next tree profile by increasing the index by 1. Also, saves the index.
