@@ -125,13 +125,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Log.d(TAG, "Rewind button clicked!");
         }
 
-        TextView idNumberTextView = findViewById(R.id.treeID);
-        String currentProfileId = idNumberTextView.getText().toString();
-        Log.d(TAG, "Current profile id: " + currentProfileId);
+
+
 
         if (eventSourceId == R.id.nopeIcon) {
-
-            //Log.d(TAG, "new profile id: " + moveToNextProfile().getProfileID());
 
             moveToNextProfile();
 
@@ -146,9 +143,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             ShapeableImageView nextTreeImage = findViewById(R.id.imageTree);
             nextTreeImage.setImageResource(getCurrentProfile().getProfileImageID());
-
-            //ShapeableImageView treeImage = findViewById(R.id.imageTree);
-            //treeImage.setImageResource(moveToNextProfile().getProfileImageID());
         }
 
         //Log.d(TAG, String.valueOf(TREE_PROFILES[0])); //TreeProfile@5caf4c9
