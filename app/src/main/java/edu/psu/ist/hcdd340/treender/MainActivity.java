@@ -8,6 +8,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.imageview.ShapeableImageView;
@@ -47,8 +49,6 @@ final class TreeProfile {
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String TAG = "TREENDER_ACTIVITY";
-
     private static final int[] ACTION_ICON_IDS = {
             R.id.rewindIcon,
             R.id.nopeIcon,
@@ -81,13 +81,49 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         /*
         Set event handler for icons
          */
+        ShapeableImageView nope = findViewById(R.id.nopeIcon);
+        nope.setOnClickListener(this); //Attach a listener with the event source
+
+        ShapeableImageView boost = findViewById(R.id.boostIcon);
+        boost.setOnClickListener(this);
+
+        ShapeableImageView like = findViewById(R.id.likeIcon);
+        like.setOnClickListener(this);
+
+        ShapeableImageView superlike = findViewById(R.id.superLikeIcon);
+        superlike.setOnClickListener(this);
+
+        ShapeableImageView rewind = findViewById(R.id.rewindIcon);
+        rewind.setOnClickListener(this);
+
     }
+
+    private static final String TAG = "TREENDER_ACTIVITY";
 
     @Override
     public void onClick(View view) {
         /*
         Handle onClick events
          */
+        int eventSourceId = view.getId();
+        //Log.d(TAG, String.format("event source id: %s", view.getId()));
+
+        // Handle the nope icon
+        if (eventSourceId == R.id.nopeIcon) {
+            Log.d(TAG, "Nope button clicked!");
+        }
+        else if (eventSourceId == R.id.boostIcon) {
+            Log.d(TAG, "Boost button clicked!");
+        }
+        else if (eventSourceId == R.id.likeIcon) {
+            Log.d(TAG, "Like button clicked!");
+        }
+        else if (eventSourceId == R.id.superLikeIcon) {
+            Log.d(TAG, "Superlike button clicked!");
+        }
+        else if (eventSourceId == R.id.rewindIcon) {
+            Log.d(TAG, "Rewind button clicked!");
+        }
     }
 
 
@@ -114,6 +150,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * Gets current profile
      */
     private TreeProfile getCurrentProfile() {
+
         return TREE_PROFILES[index];
     }
 
