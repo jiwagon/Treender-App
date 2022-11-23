@@ -128,7 +128,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-        if (eventSourceId == R.id.nopeIcon) {
+        if ((eventSourceId == R.id.nopeIcon) || (eventSourceId == R.id.boostIcon)
+                || (eventSourceId == R.id.likeIcon) || (eventSourceId == R.id.superLikeIcon)) {
 
             moveToNextProfile();
 
