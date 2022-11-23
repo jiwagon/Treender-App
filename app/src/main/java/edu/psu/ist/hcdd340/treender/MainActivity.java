@@ -57,6 +57,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             R.id.superLikeIcon
     };
 
+    private static final String TAG = "TREENDER_ACTIVITY";
+
     private static final TreeProfile[] TREE_PROFILES = {
             new TreeProfile("Hosler Oak", "7863", "Arboretum", R.drawable.hosler_tree),
             new TreeProfile("Banana", "7864", "Esplanade in Arboretum", R.drawable.banana_tree),
@@ -98,8 +100,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    private static final String TAG = "TREENDER_ACTIVITY";
-
     @Override
     public void onClick(View view) {
         /*
@@ -124,6 +124,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else if (eventSourceId == R.id.rewindIcon) {
             Log.d(TAG, "Rewind button clicked!");
         }
+
+        TextView idNumberTextView = findViewById(R.id.treeID);
+        String currentProfileId = idNumberTextView.getText().toString();
+        Log.d(TAG, "Current profile id: " + currentProfileId);
     }
 
 
@@ -150,7 +154,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * Gets current profile
      */
     private TreeProfile getCurrentProfile() {
-
         return TREE_PROFILES[index];
     }
 
