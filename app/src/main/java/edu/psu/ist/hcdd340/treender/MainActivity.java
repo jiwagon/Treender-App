@@ -125,37 +125,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Log.d(TAG, "Rewind button clicked!");
         }
 
-
-
         TextView idNumberTextView = findViewById(R.id.treeID);
         String currentProfileId = idNumberTextView.getText().toString();
         Log.d(TAG, "Current profile id: " + currentProfileId);
 
+        if (eventSourceId == R.id.nopeIcon) {
 
-        if (getCurrentProfile() == TREE_PROFILES[0]) {
-            if (eventSourceId == R.id.nopeIcon) {
-                //TreeProfile treeID = moveToNextProfile();
-                Log.d(TAG, "new profile id: " + moveToNextProfile()); }
+            //Log.d(TAG, "new profile id: " + moveToNextProfile().getProfileID());
 
-            else if (eventSourceId == R.id.rewindIcon) {
-                    Log.d(TAG, "new profile id: " + moveToPreviousProfile());
+            moveToNextProfile();
 
-                ShapeableImageView treeImage = findViewById(R.id.imageTree);
-                treeImage.setImageResource(R.drawable.banana_tree);
-//
-//                TextView treeNameTextView = findViewById(R.id.treeName);
-//                treeNameTextView.setText(this.TREE_PROFILES[1]);
-            }
+            TextView nextTreeID = findViewById(R.id.treeID);
+            nextTreeID.setText(getCurrentProfile().getProfileID());
+
+            TextView nextTreeName = findViewById(R.id.treeName);
+            nextTreeName.setText(getCurrentProfile().getProfileName());
+
+            TextView nextTreeLocation = findViewById(R.id.locationText);
+            nextTreeLocation.setText(getCurrentProfile().getLocation());
+
+            //TextView nextTreeImage = findViewById(R.id.imageTree);
+            //nextTreeImage.setText(getCurrentProfile().getProfileImageID());
+
+            //ShapeableImageView treeImage = findViewById(R.id.imageTree);
+            //treeImage.setImageResource(moveToNextProfile().getProfileImageID());
         }
 
-
-
-        //TextView treeNameTextView = findViewById(R.id.treeName);
-        //treeNameTextView.setText(R.string);
-
-        Log.d(TAG, String.valueOf(TREE_PROFILES[0])); //TreeProfile@5caf4c9
-        Log.d(TAG, String.valueOf(TREE_PROFILES[1])); //TreeProfile@a75a7ce
-        Log.d(TAG, String.valueOf(TREE_PROFILES[2])); //TreeProfile@48d66ef
+        //Log.d(TAG, String.valueOf(TREE_PROFILES[0])); //TreeProfile@5caf4c9
+        //Log.d(TAG, String.valueOf(TREE_PROFILES[1])); //TreeProfile@a75a7ce
+        //Log.d(TAG, String.valueOf(TREE_PROFILES[2])); //TreeProfile@48d66ef
 
     }
 
