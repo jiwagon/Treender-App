@@ -97,7 +97,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         ShapeableImageView rewind = findViewById(R.id.rewindIcon);
         rewind.setOnClickListener(this);
-
     }
 
     @Override
@@ -112,15 +111,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (eventSourceId == R.id.nopeIcon) {
             Log.d(TAG, "Nope button clicked!");
         }
+        // Handle the boost icon
         else if (eventSourceId == R.id.boostIcon) {
             Log.d(TAG, "Boost button clicked!");
         }
+        // Handle the like icon
         else if (eventSourceId == R.id.likeIcon) {
             Log.d(TAG, "Like button clicked!");
         }
+        // Handle the superlike icon
         else if (eventSourceId == R.id.superLikeIcon) {
             Log.d(TAG, "Superlike button clicked!");
         }
+        // Handle the rewind icon
         else if (eventSourceId == R.id.rewindIcon) {
             Log.d(TAG, "Rewind button clicked!");
         }
@@ -129,6 +132,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 || (eventSourceId == R.id.likeIcon) || (eventSourceId == R.id.superLikeIcon)) {
 
             moveToNextProfile();
+
+            TextView nextTreeID = findViewById(R.id.treeID);
+            nextTreeID.setText(getCurrentProfile().getProfileID());
+
+            TextView nextTreeName = findViewById(R.id.treeName);
+            nextTreeName.setText(getCurrentProfile().getProfileName());
+
+            TextView nextTreeLocation = findViewById(R.id.locationText);
+            nextTreeLocation.setText(getCurrentProfile().getLocation());
+
+            ShapeableImageView nextTreeImage = findViewById(R.id.imageTree);
+            nextTreeImage.setImageResource(getCurrentProfile().getProfileImageID());
+        }
+        else if (eventSourceId == R.id.rewindIcon) {
+            moveToPreviousProfile();
 
             TextView nextTreeID = findViewById(R.id.treeID);
             nextTreeID.setText(getCurrentProfile().getProfileID());
@@ -169,6 +187,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TreeProfile getCurrentProfile() {
         return TREE_PROFILES[index];
     }
-
-
 }
