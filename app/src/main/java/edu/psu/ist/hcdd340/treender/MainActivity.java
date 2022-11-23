@@ -144,8 +144,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             TextView nextTreeLocation = findViewById(R.id.locationText);
             nextTreeLocation.setText(getCurrentProfile().getLocation());
 
-            //TextView nextTreeImage = findViewById(R.id.imageTree);
-            //nextTreeImage.setText(getCurrentProfile().getProfileImageID());
+            ShapeableImageView nextTreeImage = findViewById(R.id.imageTree);
+            nextTreeImage.setImageResource(getCurrentProfile().getProfileImageID());
 
             //ShapeableImageView treeImage = findViewById(R.id.imageTree);
             //treeImage.setImageResource(moveToNextProfile().getProfileImageID());
