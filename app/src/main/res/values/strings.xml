@@ -7,4 +7,6 @@
     <string name="tree_name">HoslerOak,</string>
     <string name="tree_id">7863</string>
     <string name="tree_location">Arboretum</string>
+
+    <string name="about_menu">About</string>
 </resources>

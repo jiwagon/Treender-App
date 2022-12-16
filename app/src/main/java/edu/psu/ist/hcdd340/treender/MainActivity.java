@@ -7,6 +7,8 @@ import androidx.core.content.ContextCompat;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -72,6 +74,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             new TreeProfile("Hellebore", "7871", "Strolling Garden", R.drawable.hellebore_tree),
             new TreeProfile("False Spirea", "7872", "Strolling Garden", R.drawable.spirea_tree), */
     };
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int menuId = item.getItemId();
+
+        if (menuId == R.id.reset_menu) {
+            Log.d(TAG, "Reset icon clicked!");
+            return true;
+        }
+        if (menuId == R.id.about_menu) {
+            Log.d(TAG, "About menu clicked!");
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     private static int index = 0;
 
