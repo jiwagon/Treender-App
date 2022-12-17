@@ -1,19 +1,13 @@
 package edu.psu.ist.hcdd340.treender;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.imageview.ShapeableImageView;
@@ -78,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     };
 
     /**
-     * @param menu
+     * @param menu: top menu bar
      * @return true when id selected
      */
     @Override
