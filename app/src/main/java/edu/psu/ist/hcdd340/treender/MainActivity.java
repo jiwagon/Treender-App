@@ -66,14 +66,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             new TreeProfile("Hosler Oak", "7863", "Arboretum", R.drawable.hosler_tree),
             new TreeProfile("Banana", "7864", "Esplanade in Arboretum", R.drawable.banana_tree),
             new TreeProfile("Hemlock", "7865", "Entry Walk in Arboretum", R.drawable.hemlock_tree),
-            /*
             new TreeProfile("Santa Cruz lily", "7866", "Oasis Garden & Lotus Pool", R.drawable.santa_cruiz_tree),
             new TreeProfile("Flapjack", "7867", "Arboretum", R.drawable.flapjack_tree),
             new TreeProfile("Japanese Peony", "7868", "Rose & Fragrance Garden", R.drawable.japanese_peony_tree),
             new TreeProfile("Crab Apple", "7869", "Strolling Garden", R.drawable.crabapple_tree),
             new TreeProfile("Black Pine", "7870", "Strolling Garden", R.drawable.blackpine_tree),
             new TreeProfile("Hellebore", "7871", "Strolling Garden", R.drawable.hellebore_tree),
-            new TreeProfile("False Spirea", "7872", "Strolling Garden", R.drawable.spirea_tree), */
+            new TreeProfile("False Spirea", "7872", "Strolling Garden", R.drawable.spirea_tree),
     };
 
     /**
@@ -83,6 +82,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        /* this does not work
+        //MenuItem reset = findViewById(R.id.reset_menu);
+        //reset.setOnMenuItemClickListener((MenuItem.OnMenuItemClickListener) this);
         return true;
     }
 
@@ -92,6 +94,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (menuId == R.id.reset_menu) {
             Log.d(TAG, "Reset icon clicked!");
             View view = findViewById(R.id.rewindIcon);
+            updateTreeProfile(getFirstProfile());
             Snackbar.make(view,
                     R.string.snack_bar_reset,
                     Snackbar.LENGTH_LONG).show();
@@ -103,6 +106,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         return super.onOptionsItemSelected(item);
     }
+
 
     private static int index = 0;
 
@@ -162,9 +166,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Use || as "or" operator
         if ((eventSourceId == R.id.nopeIcon) || (eventSourceId == R.id.boostIcon)
                 || (eventSourceId == R.id.likeIcon) || (eventSourceId == R.id.superLikeIcon)) {
+            updateTreeProfile(moveToNextProfile());
 
-            moveToNextProfile();
-
+            /**
+             * Assignment 2 old code - without showTreeProfile function
             // Update TextView contents by getting the fields in Tree Profile objects
             TextView nextTreeID = findViewById(R.id.treeID);
             nextTreeID.setText(getCurrentProfile().getProfileID());
@@ -178,11 +183,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // Update image source by getting image id from current Tree Profile
             ShapeableImageView nextTreeImage = findViewById(R.id.imageTree);
             nextTreeImage.setImageResource(getCurrentProfile().getProfileImageID());
+             */
         }
         else if (eventSourceId == R.id.rewindIcon) {
+            updateTreeProfile(moveToPreviousProfile());
 
-            moveToPreviousProfile();
-
+            /**
+             * Assignment 2 old code - without showTreeProfile function
             // Update TextView contents by getting the fields in Tree Profile objects
             TextView nextTreeID = findViewById(R.id.treeID);
             nextTreeID.setText(getCurrentProfile().getProfileID());
@@ -196,6 +203,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // Update image source by getting image id from current Tree Profile
             ShapeableImageView nextTreeImage = findViewById(R.id.imageTree);
             nextTreeImage.setImageResource(getCurrentProfile().getProfileImageID());
+            */
         }
     }
 
@@ -222,5 +230,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     private TreeProfile getCurrentProfile() {
         return TREE_PROFILES[index];
+    }
+
+    /**
+     * Gets the first tree profile
+     */
+    private TreeProfile getFirstProfile() {
+        index = 0;
+        return TREE_PROFILES[index];
+    }
+
+    /**
+     * Show a given profile
+     */
+    private void showTreeProfile(TreeProfile treeProfile) {
+        ShapeableImageView treeImage = findViewById(R.id.imageTree);
+        treeImage.setImageResource(treeProfile.getProfileImageID());
+
+        TextView view;
+        view = findViewById(R.id.treeName);
+        view.setText(treeProfile.getProfileName());
+
+        view = findViewById(R.id.treeID);
+        view.setText(treeProfile.getProfileID());
+
+        view = findViewById(R.id.locationText);
+        view.setText(treeProfile.getLocation());
+    }
+
+    /**
+     * Update the screen to show the given tree profile
+     */
+    private void updateTreeProfile(TreeProfile profile) {
+        showTreeProfile(profile);
     }
 }
