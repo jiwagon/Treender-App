@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        /* this does not work
+        //this does not work
         //MenuItem reset = findViewById(R.id.reset_menu);
         //reset.setOnMenuItemClickListener((MenuItem.OnMenuItemClickListener) this);
         return true;
