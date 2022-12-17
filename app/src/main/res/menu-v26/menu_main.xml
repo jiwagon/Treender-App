@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/about_menu"
-        android:title="@string/about_menu"
+        android:title="@string/menu_about"
         app:showAsAction="never" />
 
     <item
@@ -12,7 +12,7 @@
         android:enabled="true"
         android:icon="@drawable/reset_icon"
         android:iconTint="@color/white"
-        android:title=""
+        android:title="@string/menu_reset"
         android:visible="true"
         app:contentPadding="48dp"
         app:shapeAppearanceOverlay="@style/circleShape"

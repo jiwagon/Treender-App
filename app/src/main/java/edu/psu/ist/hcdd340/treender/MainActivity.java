@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.imageview.ShapeableImageView;
+import com.google.android.material.snackbar.Snackbar;
 
 /**
  * Data class representing a tree profile
@@ -75,6 +76,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             new TreeProfile("False Spirea", "7872", "Strolling Garden", R.drawable.spirea_tree), */
     };
 
+    /**
+     * @param menu
+     * @return true when id selected
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -86,6 +91,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (menuId == R.id.reset_menu) {
             Log.d(TAG, "Reset icon clicked!");
+            View view = findViewById(R.id.rewindIcon);
+            Snackbar.make(view,
+                    R.string.snack_bar_reset,
+                    Snackbar.LENGTH_LONG).show();
             return true;
         }
         if (menuId == R.id.about_menu) {
