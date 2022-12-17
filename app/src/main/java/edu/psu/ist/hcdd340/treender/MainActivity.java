@@ -1,9 +1,11 @@
 package edu.psu.ist.hcdd340.treender;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -82,9 +84,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        //this does not work
-        //MenuItem reset = findViewById(R.id.reset_menu);
-        //reset.setOnMenuItemClickListener((MenuItem.OnMenuItemClickListener) this);
         return true;
     }
 
@@ -97,11 +96,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             updateTreeProfile(getFirstProfile());
             Snackbar.make(view,
                     R.string.snack_bar_reset,
-                    Snackbar.LENGTH_LONG).show();
+                    Snackbar.LENGTH_SHORT).show();
             return true;
         }
         if (menuId == R.id.about_menu) {
             Log.d(TAG, "About menu clicked!");
+            AlertDialog.Builder aboutAlert = new AlertDialog.Builder(this);
+            aboutAlert.setTitle(R.string.about_alert_title);
+            aboutAlert.setMessage(R.string.about_alert_message);
+            aboutAlert.setPositiveButton(android.R.string.ok, null);
+            aboutAlert.show();
             return true;
         }
         return super.onOptionsItemSelected(item);
